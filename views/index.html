@@ -13,26 +13,52 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Timestamp Microservice</h1>
-    <div class="wrapper">
-      <div>
-        <h3>Valid Date</h3>
-        <code>[project url]/api/2015-12-25</code>
-        <code>{
-          "unix":1451001600000, 
-          "utc":"Fri, 25 Dec 2015 00:00:00 GMT"
-        }</code>
-        <button type="button">Test</button>
-      </div>
+    <h1 class="title">Timestamp Microservice</h1>
+    <div class="container">
+      <div class="wrapper">
+        <div class="box">
+          <h3>Valid Date</h3>
+          <p>Example Usage:</p>
+          <code>url/api/2015-12-25</code>
+          <p>Example Output:</p>
+          <code>{ "unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT" }</code>
+          <form action="" method="get">
+            <button type="button">Test</button>
+          </form>
+        </div>
 
-      <div>
-        <h3>Unix Timestamp</h3>
-        <code>[project url]/api/1451001600000 </code>
-        <code>{
-          "unix":1451001600000, 
-          "utc":"Fri, 25 Dec 2015 00:00:00 GMT"
-        }</code>
-        <button type="button">Test</button>
+        <div class="box">
+          <h3>Unix Timestamp</h3>
+          <p>Example Usage:</p>
+          <code>url/api/1451001600000</code>
+          <p>Example Output:</p>
+          <code>{ "unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT" }</code>
+          <form action="" method="get">
+            <button type="button">Test</button>
+          </form>
+        </div>
+
+        <div class="box">
+          <h3>Invalid Date</h3>
+          <p>Example Usage:</p>
+          <code>url/api/foo </code>
+          <p>Example Output:</p>
+          <code>{ error: "Invalid Date" }</code>
+          <form action="" method="get">
+            <button type="button">Test</button>
+          </form>
+        </div>
+
+        <div class="box">
+          <h3>Empty Date Parameter</h3>
+          <p>Example Usage:</p>
+          <code>url/api/ </code>
+          <p>Example Output:</p>
+          <code>{ "unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT" }</code>
+          <form action="" method="get">
+            <button type="button">Test</button>
+          </form>
+        </div>
       </div>
     </div>
   </body>

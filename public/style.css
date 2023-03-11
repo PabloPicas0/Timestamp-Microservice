@@ -1,0 +1,39 @@
+:root {
+  --main-background: rgb(82, 82, 82);
+  --text-color: whitesmoke;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: ROBOTO;
+  background-color: var(--main-background);
+  color: var(--text-color);
+}
+
+.title {
+  text-align: center;
+}
+
+.container {
+  max-width: 80vh;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.box {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+@media (max-width: 960px) {
+  .wrapper {
+    margin: 0px 5px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

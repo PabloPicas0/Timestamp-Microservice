@@ -13,20 +13,30 @@ app.get("/", (req, res) => {
 
 app.get("/api/:unix", (req, res) => {
   const { unix } = req.params;
-  const unixTimestamp = Number(unix);
-  const regex = /^\d{13}/g;
+  const unixRegex = /^\d{13}/g;
 
-  // Check if user inserted date
-  if (regex.test(unixTimestamp)) {
+  // Check if user inserted unix date
+  // If yes show unix date
+  if (unixRegex.test(unix)) {
+    const unixTimestamp = Number(unix);
     const date = new Date(unixTimestamp).toUTCString();
-    res.json({ unix: unixTimestamp, utc: date });
+    return res.json({ unix: unixTimestamp, utc: date });
   }
+
+  const dateParam = new Date(unix);
+
+  // Check if user inserted valid date
+  // If not thorw error
+  if (dateParam.toString() === "Invalid Date") {
+    return res.json({ error: dateParam.toString() });
+  }
+
+  return res.json({ unix: dateParam.getTime(), utc: dateParam });
 });
 
 app.get("/api/", (req, res) => {
-  const date = new Date()
-  const timestamp = date.getTime()
-  res.json({unix: timestamp, utc: date.toUTCString()})
+  const date = new Date();
+  res.json({ unix: date.getTime(), utc: date.toUTCString() });
 });
 
 // Request listener

@@ -1,5 +1,6 @@
 :root {
-  --main-background: rgb(82, 82, 82);
+  --main-background: rgb(48, 48, 48);
+  --code-color: #9c9c9c;
   --text-color: whitesmoke;
 }
 body {
@@ -13,6 +14,7 @@ body {
 
 .title {
   text-align: center;
+  color: yellow;
 }
 
 .container {
@@ -27,8 +29,47 @@ body {
 }
 
 .box {
-  border: 1px solid black;
+  border: 1px solid;
   padding: 20px;
+  animation: changeBorderColor 5s infinite alternate;
+}
+
+h3 {
+  margin: 0px;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+code {
+  display: block;
+  line-height: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: var(--code-color);
+}
+
+form {
+  margin-top: 10px;
+}
+
+button {
+  background-color: rgb(138, 195, 245);
+  border: none;
+  padding: 5px 30px;
+}
+
+@keyframes changeBorderColor {
+  0% {
+    border-color: blue;
+  }
+  50% {
+    border-color: green;
+  }
+  100% {
+    border-color: yellow;
+  }
 }
 
 @media (max-width: 960px) {

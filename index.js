@@ -31,7 +31,7 @@ app.get("/api/:unix", (req, res) => {
     return res.json({ error: dateParam.toString() });
   }
 
-  return res.json({ unix: dateParam.getTime(), utc: dateParam });
+  return res.json({ unix: dateParam.getTime(), utc: dateParam.toUTCString() });
 });
 
 app.get("/api/", (req, res) => {
